@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -e
+set -ex
 
 git init
 git remote add origin git@github.com:{{ cookiecutter.github_org }}/{{ cookiecutter.github_project }}.git
