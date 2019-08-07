@@ -1,0 +1,24 @@
+[package]
+name = "{{ cookiecutter.crate_name }}"
+version = "{{ cookiecutter.version }}"
+authors = ["{{ cookiecutter.full_name }} <{{ cookiecutter.email }}>"]
+edition = "2018"
+description = "{{ cookiecutter.project_short_description }}"
+documentation = "https://docs.rs/{{ cookiecutter.crate_name }}"
+homepage = "{{ cookiecutter.project_homepage }}"
+repository = "https://github.com/{{ cookiecutter.github_org }}/{{cookiecutter.github_project }}"
+keywords = []
+categories = []
+license = "Apache-2.0 OR MIT"
+
+[badges]
+travis-ci = { repository = "{{ cookiecutter.github_org }}/{{ cookiecutter.github_project }}", branch = "master" }
+is-it-maintained-issue-resolution = { repository = "{{ cookiecutter.github_org }}/{{ cookiecutter.github_project }}" }
+is-it-maintained-open-issues = { repository = "{{ cookiecutter.github_org }}/{{ cookiecutter.github_project }}" }
+maintenance = { status = "actively-developed" }
+
+[dependencies]
+human-panic = "1.0"
+
+[dev-dependencies]
+doc-comment = "0.3"

@@ -1,0 +1,48 @@
+sudo: false
+language: rust
+
+matrix:
+  allow_failures:
+    - rust: nightly
+  fast_finish: true
+  include:
+    - name: "Lints"
+      os: linux
+      env: RUSTFLAGS="-D warnings"
+      rust: {{ cookiecutter.stable_rust }}
+      install:
+        - rustup component add clippy
+        - rustup component add rustfmt
+        - cargo install cargo-update || echo "cargo-update already installed"
+        - cargo install cargo-audit || echo "cargo-audit already installed"
+        - cargo install-update --all
+      script:
+        - cargo fmt --all -- --check
+        - cargo clippy --all --bins --examples --tests --benches -- -D clippy::all
+        - cargo audit
+
+    # Matrix is manually expanded so lints run first
+    - rust: {{ cookiecutter.msrv }}
+      os: linux
+    - rust: {{ cookiecutter.msrv }}
+      os: osx
+    - rust: {{ cookiecutter.msrv }}
+      os: windows
+    - rust: stable
+      os: linux
+    - rust: stable
+      os: osx
+    - rust: stable
+      os: windows
+
+    - name: "Nightly"
+      os: linux
+      rust: nightly
+      script:
+        - cargo test --verbose
+
+script:
+  - cargo test --verbose
+
+cache:
+  cargo: true

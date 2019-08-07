@@ -1,0 +1,17 @@
+{
+    "full_name": "Your name",
+    "email": "Your address email (eq. you@example.com)",
+    "github_username": "Your github username",
+    "github_org": "{{ cookiecutter.github_username }}",
+    "project_name": "Name of the project",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+    "github_project": "{{ cookiecutter.project_slug }}",
+    "project_short_description": "A short description of the project",
+    "project_homepage": "https://github.com/{{ cookiecutter.github_org }}/{{cookiecutter.github_project }}",
+    "crate_name": "{{ cookiecutter.project_slug }}",
+    "msrv": "1.32.0",
+    "stable_rust": "1.36.0",
+    "release_date": "{% now 'local' %}",
+    "version": "0.1.0",
+    "_extensions": ["jinja2_time.TimeExtension"]
+}
