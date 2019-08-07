@@ -1,6 +1,8 @@
 cookiecutter-rust-bin
 =====================
 
+![Travis CI](https://img.shields.io/travis/com/nastevens/cookiecutter-rust-bin)
+
 cookiecutter template for Rust binary projects
 
 Requirements
